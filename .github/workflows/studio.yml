@@ -49,8 +49,6 @@ jobs:
         if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
         name: Install pnpm
         id: pnpm-install
-        with:
-          version: 9
 
       - uses: actions/setup-node@v4
         with:
@@ -70,7 +68,7 @@ jobs:
         run: npx nuxi build --preset github_pages
         env:
           NUXT_PUBLIC_STUDIO_API_URL: https://api.nuxt.studio
-          VERSION: ${{ secrets.VERSION }}
+          
 
       # Deployment job
       - name: Deploy 🚀
